@@ -11,6 +11,11 @@
     <nav class="navbar">
       <div class="container">
         <div class="nav-brand">Cygnus Strategy</div>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
         <div class="nav-links">
           <a href="#services">Services</a>
           <a href="#approach">Our Approach</a>
@@ -18,6 +23,14 @@
         </div>
       </div>
     </nav>
+    <script>
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('open');
+      });
+    </script>
 
     <header class="hero">
       <div class="container">

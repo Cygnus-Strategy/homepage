@@ -82,6 +82,7 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .nav-brand {
@@ -96,6 +97,7 @@ body::before {
 .nav-links {
   display: flex;
   gap: var(--spacing-lg);
+  transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-links a {
@@ -108,6 +110,45 @@ body::before {
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 200;
+}
+.nav-toggle-bar {
+  width: 28px;
+  height: 3px;
+  background: var(--color-cream);
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.nav-toggle.open .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(0deg);
+  width: 28px;
+}
+.nav-toggle.open .nav-toggle-bar:nth-child(2) {
+  opacity: 1;
+  transform: translateY(7px) rotate(0deg);
+  width: 28px;
+}
+.nav-toggle.open .nav-toggle-bar:nth-child(3) {
+  transform: translateY(7px) rotate(0deg);
+  width: 28px;
+}
+.nav-links.nav-open {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-links a:hover {
@@ -580,14 +621,35 @@ body::before {
     font-size: 2rem;
   }
 
+  .nav-toggle {
+    display: flex;
+  }
   .nav-links {
-    gap: var(--spacing-sm);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: var(--color-navy);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    border-bottom: 3px solid var(--color-red);
+    transition: max-height 0.3s ease, opacity 0.3s ease;
   }
-
   .nav-links a {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    padding: var(--spacing-md);
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-align: left;
   }
-
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
   .values-grid,
   .services-grid,
   .pillars-grid,
