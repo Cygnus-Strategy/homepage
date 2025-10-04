@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar">
       <div class="container">
-        <div class="nav-brand">Cygnus Strategy</div>
+  <a href="#" class="nav-brand" id="nav-brand">Cygnus Strategy</a>
         <button class="nav-toggle" aria-label="Toggle navigation">
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
@@ -39,6 +39,11 @@
             navToggle.classList.remove('open');
           }
         });
+      });
+      // Scroll to top when nav-brand is clicked
+      document.getElementById('nav-brand').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     </script>
 

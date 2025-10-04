@@ -92,6 +92,7 @@ body::before {
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-decoration: none;
 }
 
 .nav-links {
@@ -123,6 +124,7 @@ body::before {
   border: none;
   cursor: pointer;
   z-index: 200;
+  position: relative;
 }
 .nav-toggle-bar {
   width: 28px;
@@ -131,18 +133,25 @@ body::before {
   margin: 4px 0;
   border-radius: 2px;
   transition: 0.3s;
+  position: relative;
 }
 .nav-toggle.open .nav-toggle-bar:nth-child(1) {
-  transform: translateY(7px) rotate(0deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
   width: 28px;
 }
 .nav-toggle.open .nav-toggle-bar:nth-child(2) {
-  opacity: 1;
-  transform: translateY(7px) rotate(0deg);
+  opacity: 0;
   width: 28px;
+  position: absolute;
 }
 .nav-toggle.open .nav-toggle-bar:nth-child(3) {
-  transform: translateY(7px) rotate(0deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
   width: 28px;
 }
 .nav-links.nav-open {
