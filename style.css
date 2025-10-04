@@ -261,6 +261,7 @@ body::before {
 
 .section {
   padding: var(--spacing-3xl) 0;
+  scroll-margin-top: 80px;
 }
 
 .section-alt {
@@ -660,6 +661,7 @@ body::before {
 
   .section {
     padding: var(--spacing-2xl) 0;
+    scroll-margin-top: 60px;
   }
 
   .hero {

@@ -30,6 +30,15 @@
         navLinks.classList.toggle('nav-open');
         navToggle.classList.toggle('open');
       });
+      // Close menu when a nav link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            navLinks.classList.remove('nav-open');
+            navToggle.classList.remove('open');
+          }
+        });
+      });
     </script>
 
     <header class="hero">
