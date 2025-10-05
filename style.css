@@ -6,7 +6,7 @@
 
 :root {
   --color-navy: #0a1128;
-  --color-navy-light: #1c2541;
+  --color-navy-light: #0A3161;
   --color-red: #c1121f;
   --color-red-dark: #9a0f1a;
   --color-cream: #f8f9fa;
@@ -180,14 +180,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 48%,
-    rgba(193, 18, 31, 0.05) 48%,
-    rgba(193, 18, 31, 0.05) 52%,
-    transparent 52%
-  );
+
   background-size: 200px 100%;
   pointer-events: none;
 }
