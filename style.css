@@ -475,9 +475,29 @@ body::after {
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl) var(--spacing-xl);
   margin-top: var(--spacing-2xl);
+  position: relative;
+}
+
+.values-grid .value-card:nth-child(1) {
+  grid-column: 1;
+  transform: rotate(-2deg);
+  margin-top: var(--spacing-xl);
+}
+
+.values-grid .value-card:nth-child(2) {
+  grid-column: 2;
+  transform: rotate(2deg);
+  margin-top: 0;
+}
+
+.values-grid .value-card:nth-child(3) {
+  grid-column: 1 / -1;
+  max-width: 500px;
+  margin: 0 auto;
+  transform: rotate(1deg);
 }
 
 .value-card {
@@ -517,9 +537,10 @@ body::after {
 }
 
 .value-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.05) rotate(0deg) !important;
   box-shadow: 0 16px 40px rgba(255, 107, 53, 0.3);
   border-color: var(--color-orange);
+  z-index: 10;
 }
 
 .value-card:hover::before {
@@ -543,9 +564,41 @@ body::after {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-2xl);
+}
+
+/* Asymmetric masonry layout - different sizes for visual interest */
+.services-grid .service-card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.services-grid .service-card:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.services-grid .service-card:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.services-grid .service-card:nth-child(4) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.services-grid .service-card:nth-child(5) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.services-grid .service-card:nth-child(6) {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 .service-card {
@@ -691,9 +744,28 @@ body::after {
 
 .approach-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
   margin-top: var(--spacing-xl);
+  position: relative;
+}
+
+.approach-content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(15deg);
+  width: 3px;
+  height: 150%;
+  background: linear-gradient(180deg, 
+    transparent 0%,
+    var(--color-gold) 20%,
+    var(--color-orange) 50%,
+    var(--color-gold) 80%,
+    transparent 100%
+  );
+  z-index: 0;
 }
 
 .approach-item {
@@ -704,6 +776,17 @@ body::after {
   box-shadow: 0 10px 30px rgba(204, 31, 31, 0.2);
   position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.approach-item:nth-child(1) {
+  transform: rotate(-3deg);
+  margin-top: var(--spacing-2xl);
+}
+
+.approach-item:nth-child(2) {
+  transform: rotate(3deg);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .approach-item::before {
@@ -780,10 +863,36 @@ body::after {
 }
 
 .contact-methods {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-3xl);
+  margin-top: var(--spacing-2xl);
+  position: relative;
+  min-height: 400px;
+}
+
+.contact-methods::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border: 3px dashed rgba(255, 170, 0, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact-methods .contact-card:nth-child(1) {
+  transform: rotate(-8deg);
+  margin-top: -40px;
+}
+
+.contact-methods .contact-card:nth-child(2) {
+  transform: rotate(8deg);
+  margin-bottom: -40px;
 }
 
 .contact-card {
@@ -813,9 +922,10 @@ body::after {
 }
 
 .contact-card:hover {
-  transform: translateY(-8px) scale(1.05);
+  transform: translateY(-12px) scale(1.08) rotate(0deg) !important;
   box-shadow: 0 16px 40px rgba(255, 170, 0, 0.4);
   border-color: var(--color-orange);
+  z-index: 10;
 }
 
 .contact-card:hover::before {
@@ -968,12 +1078,62 @@ body::after {
   .nav-links a:last-child {
     border-bottom: none;
   }
-  .values-grid,
-  .services-grid,
-  .pillars-grid,
-  .approach-content,
-  .contact-methods {
+  .values-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .values-grid .value-card {
+    transform: rotate(0deg) !important;
+    margin-top: 0 !important;
+  }
+  
+  .values-grid .value-card:nth-child(3) {
+    max-width: 100%;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  
+  .services-grid .service-card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+  
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .approach-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+  
+  .approach-content::before {
+    display: none;
+  }
+  
+  .approach-item {
+    transform: rotate(0deg) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .contact-methods {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    min-height: auto;
+  }
+  
+  .contact-methods::before {
+    display: none;
+  }
+  
+  .contact-methods .contact-card {
+    transform: rotate(0deg) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .section {
