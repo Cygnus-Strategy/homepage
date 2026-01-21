@@ -792,10 +792,15 @@ section {
     
     .logo-img {
         height: 60px;
+        transition: none;
     }
     
     .site-header.scrolled .logo {
         max-height: 0;
+    }
+    
+    .site-header.scrolled .logo-img {
+        visibility: hidden;
     }
     
     .site-header.scrolled .header-content {
