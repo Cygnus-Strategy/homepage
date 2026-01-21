@@ -779,11 +779,14 @@ section {
         gap: var(--space-xs);
     }
     
+    .header-content {
+        transition: all 0.3s ease;
+    }
+    
     .logo {
-        overflow: hidden;
-        transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
-        max-height: 100px;
+        transition: opacity 0.3s ease, transform 0.3s ease;
         opacity: 1;
+        transform: scale(1);
     }
     
     .logo-img {
@@ -791,13 +794,13 @@ section {
     }
     
     .site-header.scrolled .logo {
-        max-height: 0;
         opacity: 0;
-        margin: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+        position: absolute;
     }
     
     .site-header.scrolled .header-content {
-        flex-direction: row;
         justify-content: center;
     }
     
