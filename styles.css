@@ -780,8 +780,13 @@ section {
         align-items: center;
     }
     
+    nav {
+        width: 100%;
+    }
+    
     .nav-list {
         justify-content: center;
+        width: 100%;
     }
     
     .logo {
