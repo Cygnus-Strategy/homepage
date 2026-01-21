@@ -780,13 +780,14 @@ section {
     }
     
     .header-content {
-        transition: all 0.3s ease;
+        flex-direction: column;
+        gap: var(--space-xs);
     }
     
     .logo {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        opacity: 1;
-        transform: scale(1);
+        max-height: 80px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
     }
     
     .logo-img {
@@ -794,13 +795,11 @@ section {
     }
     
     .site-header.scrolled .logo {
-        opacity: 0;
-        transform: scale(0.8);
-        pointer-events: none;
-        position: absolute;
+        max-height: 0;
     }
     
     .site-header.scrolled .header-content {
+        flex-direction: row;
         justify-content: center;
     }
     
