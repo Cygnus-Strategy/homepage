@@ -770,8 +770,27 @@ section {
         --font-size-2xl: 1.5rem;
     }
     
-    .site-header {
+    .nav-cta {
+        display: none !important;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+    
+    .logo-img {
+        height: 60px;
+        transition: height 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .site-header.scrolled .logo {
         display: none;
+    }
+    
+    .site-header.scrolled .header-content {
+        flex-direction: row;
+        justify-content: center;
     }
     
     .hero {

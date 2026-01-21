@@ -306,6 +306,22 @@
 <p>&copy; 2026 Cygnus Strategy. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+</footer>
+
+    <script>
+        // Add scrolled class to header when user scrolls down
+        const header = document.querySelector('.site-header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
