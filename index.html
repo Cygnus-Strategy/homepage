@@ -6,10 +6,12 @@
     <meta name="description" content="Cygnus Strategy provides fractional CTO, CISO, and COO leadership to growth-stage technology companies, delivering strategic clarity and measurable results like 50%+ infrastructure cost reduction.">
     <title>Cygnus Strategy | Technical Leadership & Infrastructure Consulting</title>
     
-    <!-- Atkinson Hyperlegible Next from Google Fonts -->
+    <!-- Fonts: Space Grotesk (headings), Atkinson Hyperlegible (body), JetBrains Mono (metrics) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <meta name="theme-color" content="#0a0e1a">
     
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇺🇸</text></svg>">
@@ -21,14 +23,14 @@
         <div class="container">
             <div class="header-content">
                 <a href="/" class="logo" aria-label="Cygnus Strategy Home">
-                    <img src="logo-black.svg" alt="Cygnus Strategy" class="logo-img">
+                    <img src="logo-white.svg" alt="Cygnus Strategy" class="logo-img">
                 </a>
                 <nav aria-label="Main navigation">
                     <ul class="nav-list">
                         <li><a href="#about">About</a></li>
                         <li><a href="#results">Results</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#contact" class="nav-cta">Schedule a Call</a></li>
+                        <li><a href="https://cygnus.vip">Schedule a Call</a></li>
                     </ul>
                 </nav>
             </div>
@@ -245,7 +247,7 @@
                         <p class="testimonial-text">"Sarah was a critical team member within our CDP team. Her organization and communication skills kept the team moving forward when we went remote. Everyone knew they could lean on her to work through any difficulty. She worked directly with architects and data analysts to ensure data brought into the tool was what our business users needed. The team was one of the most productive in IT and she was a major reason for that."</p>
                         <footer class="testimonial-attribution">
                             <cite>
-                                <span class="testimonial-role">Sr. Director, CDP</span>
+<span class="testimonial-role">Senior Director, Customer Data Platform</span>
                             </cite>
                         </footer>
                     </blockquote>
@@ -309,19 +311,19 @@
 </footer>
 
     <script>
-        // Add scrolled class to header when user scrolls down
+        // Header scroll behaviour
         const header = document.querySelector('.site-header');
-        let lastScroll = 0;
-        
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            lastScroll = currentScroll;
+            header.classList.toggle('scrolled', window.pageYOffset > 60);
         });
+
+        // Scroll-reveal: fade-up sections & stagger cards
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('section > .container').forEach(el => { el.classList.add('fade-up'); io.observe(el); });
+        document.querySelectorAll('.result-card, .testimonial-card').forEach(el => { el.classList.add('fade-up'); io.observe(el); });
     </script>
 </body>
 </html>
