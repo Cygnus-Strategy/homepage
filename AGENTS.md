@@ -6,7 +6,7 @@ Static marketing website for Cygnus Strategy, a boutique consultancy providing f
 
 ## Structure
 
-```
+```text
 .
 ├── index.html      # Single-page site (all content)
 ├── styles.css      # All styles (CSS custom properties, no preprocessor)
