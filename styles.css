@@ -172,9 +172,9 @@ select:focus-visible {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
   }
   html {
     scroll-behavior: auto;
@@ -345,19 +345,19 @@ section {
 }
 
 .nav-cta {
-  background: var(--gradient-solid) !important;
-  color: var(--text-inverse) !important;
-  padding: 10px var(--sp-md) !important;
-  border-radius: var(--radius) !important;
-  font-weight: 600 !important;
+  background: var(--gradient-solid);
+  color: var(--text-inverse);
+  padding: 10px var(--sp-md);
+  border-radius: var(--radius);
+  font-weight: 600;
   transition:
     box-shadow var(--duration),
-    opacity var(--duration) !important;
+    opacity var(--duration);
 }
 .nav-cta:hover {
   opacity: 0.92;
-  box-shadow: var(--glow-cyan) !important;
-  background: var(--gradient-solid) !important;
+  box-shadow: var(--glow-cyan);
+  background: var(--gradient-solid);
 }
 
 /* --------------------------------------------------------------------------
@@ -737,7 +737,7 @@ section {
 
 .service-outcome {
   font-weight: 500;
-  color: var(--text-success) !important;
+  color: var(--text-success);
   font-style: italic;
 }
 
