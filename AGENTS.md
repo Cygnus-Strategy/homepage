@@ -6,7 +6,7 @@ Static marketing website for Cygnus Strategy, a boutique consultancy providing f
 
 ## Structure
 
-```
+```text
 .
 ├── index.html      # Single-page site (all content)
 ├── styles.css      # All styles (CSS custom properties, no preprocessor)
@@ -20,12 +20,14 @@ No build step, no JavaScript framework, no package manager. Just static files se
 ## Conventions
 
 ### Copy Style
+
 - **Team voice**: Always use "we/our", never first-person "I/my"
 - **No em-dashes**: They read as AI-generated. Use commas, periods, or colons instead
 - **No hallucinations**: Every claim must be backed by existing page content or the founder's resume. Do not invent projects, metrics, or capabilities
 - **Proof points must be real**: The hero metrics and results section contain verified numbers. Do not fabricate statistics
 
 ### Site Sections (in order)
+
 1. **Hero** - Headline, subtitle, CTA, proof metrics
 2. **About** - Founder intro, team positioning
 3. **Results** - Case studies with real metrics
@@ -36,6 +38,7 @@ No build step, no JavaScript framework, no package manager. Just static files se
 8. **Footer** - Brand tagline, contact links, location
 
 ### CSS
+
 - Custom properties defined in `:root` (colors, fonts, spacing)
 - Three font families: Space Grotesk (headings), Atkinson Hyperlegible (body), JetBrains Mono (metrics)
 - Scroll-reveal animations via IntersectionObserver in inline `<script>`
