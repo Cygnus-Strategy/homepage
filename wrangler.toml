@@ -1,0 +1,24 @@
+# cygnusstrategy.com -- the site itself.
+#
+# Cloudflare Workers Builds deploys this on push to main. GitHub is the git
+# server and nothing else; .github/workflows/cf-fallback.yml only acts when
+# Cloudflare has not.
+#
+# The custom domains stay commented until the cutover deletes the GitHub Pages
+# A/AAAA records. wrangler refuses to attach a custom domain over DNS records
+# it does not manage and fails the whole deploy with code 100117.
+#
+# [[routes]]
+# pattern = "cygnusstrategy.com"
+# custom_domain = true
+#
+# [[routes]]
+# pattern = "www.cygnusstrategy.com"
+# custom_domain = true
+
+name = "cygnus-site"
+compatibility_date = "2026-09-12"
+
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
