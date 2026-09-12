@@ -4,9 +4,11 @@
 # GitHub Pages served this repository's root directly, so everything in it was
 # public -- including the print-resolution logo tree. That is preserved on
 # purpose: those paths may be linked from elsewhere, and breaking them to tidy
-# the bundle would be a silent regression. What is excluded is only what was
-# never part of the site: git metadata, CI config, the Worker config and this
-# script.
+# the bundle would be a silent regression.
+#
+# AGENTS.md is the exception. Pages published it too, but contributor notes are
+# not site content and there is no reason for them to be fetchable; that is a
+# deliberate change from the Pages behaviour rather than an oversight.
 
 set -euo pipefail
 
@@ -22,6 +24,7 @@ tar -cf - \
   --exclude='./build.sh' \
   --exclude='./_headers' \
   --exclude='./CNAME' \
+  --exclude='./AGENTS.md' \
   --exclude='./node_modules' \
   . | (cd dist && tar -xf -)
 
