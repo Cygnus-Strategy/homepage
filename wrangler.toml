@@ -4,13 +4,9 @@
 # server and nothing else; .github/workflows/cf-fallback.yml only acts when
 # Cloudflare has not.
 #
-[[routes]]
-pattern = "cygnusstrategy.com"
-custom_domain = true
-
-[[routes]]
-pattern = "www.cygnusstrategy.com"
-custom_domain = true
+# Key order matters here. In TOML, bare key-value pairs after a [[routes]]
+# block belong to that block, so name and compatibility_date must come first
+# or wrangler reads them as fields of a route and rejects the config.
 
 name = "cygnus-site"
 compatibility_date = "2026-09-12"
@@ -18,3 +14,11 @@ compatibility_date = "2026-09-12"
 [assets]
 directory = "./dist"
 html_handling = "auto-trailing-slash"
+
+[[routes]]
+pattern = "cygnusstrategy.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.cygnusstrategy.com"
+custom_domain = true
